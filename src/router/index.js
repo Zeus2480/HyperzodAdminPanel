@@ -1,23 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
+import MicroserviceDashboard from "../views/MicroseriveDashboard.vue";
+import ReachabilityAnalyzer from "../views/ReachabilityAnalyzer.vue";
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    redirect: '/microservice-dashboard',
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/microservice-dashboard',
+    name: 'MicroserviceDashboard',
+    component: MicroserviceDashboard,
+    meta: {
+      title: `Microservices`,
+    },
+  },
+  {
+    path: '/reachability-analyzer',
+    name: 'ReachabilityAnalyzer',
+    component: ReachabilityAnalyzer,
+    meta: {
+      title: `Reachability Analyzer`,
+    },
+  },
+  
 ]
 
 const router = new VueRouter({
